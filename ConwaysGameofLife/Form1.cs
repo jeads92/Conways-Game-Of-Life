@@ -2,7 +2,7 @@ namespace ConwaysGameofLife
 {
     public partial class ConwaysGameOfLife : Form
     {
-        CellMatrix cellMatrix = new CellMatrix(50,50);
+        CellMatrix cellMatrix = new CellMatrix(50, 50);
         public ConwaysGameOfLife()
         {
             InitializeComponent();
@@ -46,13 +46,49 @@ namespace ConwaysGameofLife
             }
 
             // Dispose of the unwanted objects
-
             myBrush.Dispose();
             myBrush2.Dispose();
             formGraphics.Dispose();
 
             cellMatrix.Update();
 
+        }
+
+        private void startBtn_Click(object sender, EventArgs e)
+        {
+            // If the timer is turned on, turn it off.
+            if(timer1.Enabled == true)
+            {
+                timer1.Enabled = false;
+                startBtn.Text = "Start";
+            }
+            else
+            {
+                // Otherwise, turn on the timer
+                timer1.Enabled = true;
+                startBtn.Text = "Stop";
+            }
+        }
+
+        // Use radio buttons to change the speed of the simulation
+        private void radioSpeed1_CheckedChanged(object sender, EventArgs e)
+        {
+            timer1.Interval = 100;
+        }
+
+        private void radioSpeed2_CheckedChanged(object sender, EventArgs e)
+        {
+            timer1.Interval = 500;
+        }
+
+        private void radioSpeed3_CheckedChanged(object sender, EventArgs e)
+        {
+            timer1.Interval = 1000;
+        }
+
+        private void radioSpeed4_CheckedChanged(object sender, EventArgs e)
+        {
+            timer1.Interval = 2000;
         }
     }
 }
