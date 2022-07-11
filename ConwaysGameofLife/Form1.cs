@@ -15,8 +15,8 @@ namespace ConwaysGameofLife
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int squareWidth = 10;
-            int squareHeight = 10;
+            int squareWidth = panel2.Width / 50;
+            int squareHeight = panel2.Height / 50;
             int squareXLocation = 0;
             int squareYLocation = 0;
 
@@ -24,7 +24,7 @@ namespace ConwaysGameofLife
             SolidBrush myBrush2 = new SolidBrush(Color.Blue);
             Graphics formGraphics;
             formGraphics = panel2.CreateGraphics();
-            formGraphics.FillRectangle(myBrush, new Rectangle(0, 0, 10, 10));
+            //formGraphics.FillRectangle(myBrush, new Rectangle(0, 0, 10, 10));
 
             for (int i = 0; i < cellMatrix.matrixRows; i++)
             {
@@ -32,11 +32,11 @@ namespace ConwaysGameofLife
                 {
                     if(cellMatrix.cells[i][j] == 0)
                     {
-                        formGraphics.FillRectangle(myBrush, new Rectangle(squareXLocation, squareYLocation, 10, 10));
+                        formGraphics.FillRectangle(myBrush, new Rectangle(squareXLocation, squareYLocation, squareWidth, squareHeight));
                     }
                     else
                     {
-                        formGraphics.FillRectangle(myBrush2, new Rectangle(squareXLocation, squareYLocation, 10, 10));
+                        formGraphics.FillRectangle(myBrush2, new Rectangle(squareXLocation, squareYLocation, squareWidth, squareHeight));
                     }
                     
                     squareXLocation += squareWidth;
@@ -73,22 +73,34 @@ namespace ConwaysGameofLife
         // Use radio buttons to change the speed of the simulation
         private void radioSpeed1_CheckedChanged(object sender, EventArgs e)
         {
-            timer1.Interval = 100;
+            if(radioSpeed1.Checked == true)
+            {
+                timer1.Interval = 100;
+            }
         }
 
         private void radioSpeed2_CheckedChanged(object sender, EventArgs e)
         {
-            timer1.Interval = 500;
+            if(radioSpeed2.Checked == true)
+            {
+                timer1.Interval = 500;
+            }
         }
 
         private void radioSpeed3_CheckedChanged(object sender, EventArgs e)
         {
-            timer1.Interval = 1000;
+            if(radioSpeed3.Checked == true)
+            {
+                timer1.Interval = 1000;
+            }
         }
 
         private void radioSpeed4_CheckedChanged(object sender, EventArgs e)
         {
-            timer1.Interval = 2000;
+            if (radioSpeed4.Checked == true)
+            {
+                timer1.Interval = 2000;
+            }
         }
     }
 }

@@ -122,7 +122,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(717, 562);
+            this.ClientSize = new System.Drawing.Size(717, 556);
             this.Controls.Add(this.radioSpeed4);
             this.Controls.Add(this.radioSpeed3);
             this.Controls.Add(this.radioSpeed2);
