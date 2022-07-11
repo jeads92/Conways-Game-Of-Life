@@ -37,6 +37,7 @@
             this.radioSpeed2 = new System.Windows.Forms.RadioButton();
             this.radioSpeed3 = new System.Windows.Forms.RadioButton();
             this.radioSpeed4 = new System.Windows.Forms.RadioButton();
+            this.debugLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -117,12 +118,21 @@
             this.radioSpeed4.UseVisualStyleBackColor = true;
             this.radioSpeed4.CheckedChanged += new System.EventHandler(this.radioSpeed4_CheckedChanged);
             // 
+            // debugLbl
+            // 
+            this.debugLbl.AutoSize = true;
+            this.debugLbl.Location = new System.Drawing.Point(565, 416);
+            this.debugLbl.Name = "debugLbl";
+            this.debugLbl.Size = new System.Drawing.Size(0, 15);
+            this.debugLbl.TabIndex = 15;
+            // 
             // ConwaysGameOfLife
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(717, 556);
+            this.Controls.Add(this.debugLbl);
             this.Controls.Add(this.radioSpeed4);
             this.Controls.Add(this.radioSpeed3);
             this.Controls.Add(this.radioSpeed2);
@@ -147,5 +157,6 @@
         private RadioButton radioSpeed2;
         private RadioButton radioSpeed3;
         private RadioButton radioSpeed4;
+        private Label debugLbl;
     }
 }

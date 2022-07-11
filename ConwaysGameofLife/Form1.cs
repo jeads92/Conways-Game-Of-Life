@@ -15,16 +15,16 @@ namespace ConwaysGameofLife
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int squareWidth = panel2.Width / 50;
-            int squareHeight = panel2.Height / 50;
-            int squareXLocation = 0;
-            int squareYLocation = 0;
-
+            float squareWidth = (float)panel2.Width / 50f;
+            float squareHeight = (float)panel2.Height / 50f;
+            float squareXLocation = 0f;
+            float squareYLocation = 0f;
+            // debug info
+            debugLbl.Text = $"square width: {squareWidth}. square height: {squareHeight}";
             SolidBrush myBrush = new SolidBrush(Color.RebeccaPurple);
             SolidBrush myBrush2 = new SolidBrush(Color.Blue);
             Graphics formGraphics;
             formGraphics = panel2.CreateGraphics();
-            //formGraphics.FillRectangle(myBrush, new Rectangle(0, 0, 10, 10));
 
             for (int i = 0; i < cellMatrix.matrixRows; i++)
             {
@@ -32,11 +32,11 @@ namespace ConwaysGameofLife
                 {
                     if(cellMatrix.cells[i][j] == 0)
                     {
-                        formGraphics.FillRectangle(myBrush, new Rectangle(squareXLocation, squareYLocation, squareWidth, squareHeight));
+                        formGraphics.FillRectangle(myBrush, new RectangleF(squareXLocation, squareYLocation, squareWidth, squareHeight));
                     }
                     else
                     {
-                        formGraphics.FillRectangle(myBrush2, new Rectangle(squareXLocation, squareYLocation, squareWidth, squareHeight));
+                        formGraphics.FillRectangle(myBrush2, new RectangleF(squareXLocation, squareYLocation, squareWidth, squareHeight));
                     }
                     
                     squareXLocation += squareWidth;
