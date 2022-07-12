@@ -38,6 +38,7 @@
             this.radioSpeed3 = new System.Windows.Forms.RadioButton();
             this.radioSpeed4 = new System.Windows.Forms.RadioButton();
             this.debugLbl = new System.Windows.Forms.Label();
+            this.refreshBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timer1
@@ -55,20 +56,24 @@
             // 
             // startBtn
             // 
+            this.startBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(112)))), ((int)(((byte)(144)))));
+            this.startBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.startBtn.Location = new System.Drawing.Point(237, 527);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(75, 23);
             this.startBtn.TabIndex = 9;
             this.startBtn.Text = "Start";
-            this.startBtn.UseVisualStyleBackColor = true;
+            this.startBtn.UseVisualStyleBackColor = false;
             this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(548, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 15);
+            this.label1.Size = new System.Drawing.Size(168, 15);
             this.label1.TabIndex = 10;
             this.label1.Text = "Interval Time in Milliseconds:";
             // 
@@ -126,12 +131,27 @@
             this.debugLbl.Size = new System.Drawing.Size(0, 15);
             this.debugLbl.TabIndex = 15;
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(112)))), ((int)(((byte)(144)))));
+            this.refreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.refreshBtn.Location = new System.Drawing.Point(544, 489);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(164, 23);
+            this.refreshBtn.TabIndex = 16;
+            this.refreshBtn.Text = "Refresh Cells";
+            this.refreshBtn.UseVisualStyleBackColor = false;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
             // ConwaysGameOfLife
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(216)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(717, 556);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.debugLbl);
             this.Controls.Add(this.radioSpeed4);
             this.Controls.Add(this.radioSpeed3);
@@ -158,5 +178,6 @@
         private RadioButton radioSpeed3;
         private RadioButton radioSpeed4;
         private Label debugLbl;
+        private Button refreshBtn;
     }
 }

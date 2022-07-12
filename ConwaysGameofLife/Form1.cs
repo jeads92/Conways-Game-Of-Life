@@ -19,10 +19,11 @@ namespace ConwaysGameofLife
             float squareHeight = (float)panel2.Height / 50f;
             float squareXLocation = 0f;
             float squareYLocation = 0f;
-            // debug info
-            debugLbl.Text = $"square width: {squareWidth}. square height: {squareHeight}";
-            SolidBrush myBrush = new SolidBrush(Color.RebeccaPurple);
-            SolidBrush myBrush2 = new SolidBrush(Color.Blue);
+
+            // Create graphics and colors
+            Color aliveColor = Color.FromArgb(114, 225, 209);
+            SolidBrush deadBrush = new SolidBrush(Color.Black);
+            SolidBrush aliveBrush = new SolidBrush(aliveColor);
             Graphics formGraphics;
             formGraphics = panel2.CreateGraphics();
 
@@ -32,11 +33,11 @@ namespace ConwaysGameofLife
                 {
                     if(cellMatrix.cells[i][j] == 0)
                     {
-                        formGraphics.FillRectangle(myBrush, new RectangleF(squareXLocation, squareYLocation, squareWidth, squareHeight));
+                        formGraphics.FillRectangle(deadBrush, new RectangleF(squareXLocation, squareYLocation, squareWidth, squareHeight));
                     }
                     else
                     {
-                        formGraphics.FillRectangle(myBrush2, new RectangleF(squareXLocation, squareYLocation, squareWidth, squareHeight));
+                        formGraphics.FillRectangle(aliveBrush, new RectangleF(squareXLocation, squareYLocation, squareWidth, squareHeight));
                     }
                     
                     squareXLocation += squareWidth;
@@ -46,8 +47,8 @@ namespace ConwaysGameofLife
             }
 
             // Dispose of the unwanted objects
-            myBrush.Dispose();
-            myBrush2.Dispose();
+            deadBrush.Dispose();
+            aliveBrush.Dispose();
             formGraphics.Dispose();
 
             cellMatrix.Update();
@@ -101,6 +102,11 @@ namespace ConwaysGameofLife
             {
                 timer1.Interval = 2000;
             }
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            cellMatrix = new CellMatrix(50, 50);
         }
     }
 }
