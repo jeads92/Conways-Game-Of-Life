@@ -3,16 +3,31 @@ namespace ConwaysGameofLife
     public partial class ConwaysGameOfLife : Form
     {
         CellMatrix cellMatrix = new CellMatrix(50, 50);
+
+        /// <summary>
+        /// Initializes the app.
+        /// </summary>
         public ConwaysGameOfLife()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Loads the app.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConwaysGameOfLife_Load(object sender, EventArgs e)
         {
-
+            
         }
 
+        /// <summary>
+        /// Updates the CellMatrix object every tick, and then
+        /// draws them using a solidbrush and rectangle.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             float squareWidth = (float)panel2.Width / 50f;
@@ -20,7 +35,7 @@ namespace ConwaysGameofLife
             float squareXLocation = 0f;
             float squareYLocation = 0f;
 
-            // Create graphics and colors
+            // Create graphics and colors.
             Color aliveColor = Color.FromArgb(114, 225, 209);
             SolidBrush deadBrush = new SolidBrush(Color.Black);
             SolidBrush aliveBrush = new SolidBrush(aliveColor);
@@ -40,21 +55,28 @@ namespace ConwaysGameofLife
                         formGraphics.FillRectangle(aliveBrush, new RectangleF(squareXLocation, squareYLocation, squareWidth, squareHeight));
                     }
                     
+                    // Move to the next column.
                     squareXLocation += squareWidth;
                 }
+
+                // Move to the next row and return to the first column.
                 squareYLocation += squareHeight;
                 squareXLocation = 0;
             }
 
-            // Dispose of the unwanted objects
+            // Dispose of the unwanted objects.
             deadBrush.Dispose();
             aliveBrush.Dispose();
             formGraphics.Dispose();
 
             cellMatrix.Update();
-
         }
 
+        /// <summary>
+        /// Starts and stops the simulation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void startBtn_Click(object sender, EventArgs e)
         {
             // If the timer is turned on, turn it off.
@@ -63,15 +85,15 @@ namespace ConwaysGameofLife
                 timer1.Enabled = false;
                 startBtn.Text = "Start";
             }
+            // Otherwise, turn on the timer.
             else
             {
-                // Otherwise, turn on the timer
                 timer1.Enabled = true;
                 startBtn.Text = "Stop";
             }
         }
 
-        // Use radio buttons to change the speed of the simulation
+        // Use radio buttons to change the speed of the simulation.
         private void radioSpeed1_CheckedChanged(object sender, EventArgs e)
         {
             if(radioSpeed1.Checked == true)
